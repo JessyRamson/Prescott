@@ -1,38 +1,114 @@
-.App {
-  text-align: center;
-}
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap"); /* TailwindCss */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+@layer base {
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  body {
+    @apply bg-white;
+  }
+  label {
+    @apply text-sm text-black;
+  }
+  input[type="theme"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="url"],
+  input[type="date"],
+  input[type="time"],
+  input[type="number"],
+  select {
+    @apply input-primary px-4;
+  }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+  textarea {
+    @apply input-primary;
+  }
+
+  input[type="suffix"],
+  input[type="password"] {
+    @apply input-primary pl-4 pr-14;
+  }
+
+  input[type="search"] {
+    @apply py-4 px-4 border-none focus:outline-none w-full;
+  }
+
+  input[type="prefix"] {
+    @apply input-primary pl-8 pr-4;
+  }
+
+  input[type="file"] {
+    @apply text-sm rounded-lg py-2 px-4  bg-primary/20;
+  }
+
+  .page_cont {
+    @apply w-screen min-h-screen bg-white flex flex-col lg:flex-row;
+  }
+
+  .file-button {
+    @apply file:border-none file:py-3 file:px-4 file:bg-primary file:text-white file:text-xs file:w-32 file:rounded-md file:font-bold  transition;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@layer components {
+  .input-primary {
+    @apply py-4 text-sm border-[1.5px] border-gray-200 rounded focus:outline-primary focus:bg-primary/10 transition-all delay-75 duration-200;
   }
-  to {
-    transform: rotate(360deg);
+
+  .btn-secondary-sm {
+    @apply w-fit bg-white text-primary rounded-lg flex flex-row justify-center items-center border-white px-8 py-3;
+  }
+
+  .btn-custom {
+    @apply bg-primary flex justify-center items-center focus:outline-none focus:ring-0 active:bg-primary active:shadow-lg transition duration-150 ease-in-out;
+  }
+
+  .btn-primary-2 {
+    @apply rounded-lg px-8 py-3 bg-transparent hover:bg-black shadow-md hover:shadow-lg hover:bg-opacity-5 focus:ring-0 transition duration-150 ease-in-out hidden lg:block;
+  }
+
+  .btn-primary {
+    @apply py-4 w-full inline-block px-6 bg-primary text-white font-medium text-lg leading-tight lowercase rounded-lg shadow-md hover:bg-orange-500 hover:shadow-lg focus:bg-orange-500 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-primary active:shadow-lg transition duration-150 ease-in-out;
+  }
+
+  .btn-primary-offer {
+    @apply py-4 w-full inline-block px-6 bg-primary text-white font-medium text-lg leading-tight lowercase rounded-xl shadow-md hover:bg-orange-500 hover:shadow-lg focus:bg-orange-500 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-primary active:shadow-lg transition duration-150 ease-in-out;
+  }
+
+  .btn-primary-sm {
+    @apply w-fit bg-primary hover:bg-active active:bg-active text-white rounded-lg flex flex-row justify-center items-center border-white px-8 py-3;
+  }
+
+  .btn-primary-2-sm {
+    @apply w-fit bg-white text-primary rounded-lg flex flex-row justify-center items-center border-primary border-2 px-8 py-3;
+  }
+
+  .btn-primary-3-sm {
+    @apply bg-gray-100 text-black rounded-lg flex justify-center border-transparent px-4 py-3;
+  }
+
+  .btn-primary-3 {
+    @apply bg-gray-100 text-black rounded-lg flex justify-center border-transparent px-8 py-3;
+  }
+
+  .cancel-button {
+    @apply py-4 px-4 bg-red-500 text-white text-sm w-full rounded-md font-bold hover:bg-red-500/90  focus:outline-none focus:ring-0 active:bg-red-500 active:shadow-lg transition duration-150 ease-in-out;
+  }
+
+  .btn-primary-4 {
+    @apply py-4 px-4 bg-primary text-white text-sm w-full rounded-md font-bold hover:bg-primary/90  focus:outline-none focus:ring-0 active:bg-primary active:shadow-lg transition duration-150 ease-in-out;
+  }
+
+  .btn-primary-4-sm {
+    @apply py-2 px-4 bg-primary text-white text-sm w-full rounded-md font-bold hover:bg-primary/90  focus:outline-none focus:ring-0 active:bg-primary active:shadow-lg transition duration-150 ease-in-out;
+  }
+  .btn-custom-sm {
+    @apply focus:outline-none active:outline-none w-full bg-primary px-4 py-2 text-white shadow-md hover:shadow-lg hover:bg-primary/70 active:bg-primary/70 rounded flex justify-center items-center;
   }
 }
