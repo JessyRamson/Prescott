@@ -2,7 +2,10 @@ import React from "react";
 import Navbar from "../global/navbar/Navbar";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-import headerIllustration from "../../assets/res/header.png";
+import Image1 from "../../assets/res/456287.jpg";
+import Image2 from "../../assets/res/Ecommerce-Website.webp";
+import Image3 from "../../assets/res/iStock-1194783078.jpg";
+import Image4 from "../../assets/res/og-devs.jpg";
 
 // icons
 import { MdOutlineArrowForward } from "react-icons/md";
@@ -11,36 +14,55 @@ const Header = () => {
   const { t } = useTranslation();
 
   return (
-    <div className=" h-[100vh] bg-primary">
+    <div className="h-full md:h-[100vh] bg-white max-w-[1500px] mx-auto ">
       {/* navbar */}
       <Navbar />
 
       {/* banner */}
-      <div className="max-w-[1500px] justify-center items-center mx-auto flex flex-col lg:flex-row gap-6 mt-4 lg:mt-0 pb-6 lg:pb-0  text-white px-[15%]">
-        <div className="flex-1 flex flex-col gap-4">
-          <p className="md:text-base lg:text-xl xl:text-2xl mt-4 font-medium">
-            <span className="capitalize">{t("Job offers in Banaaf")}</span>{" "}
+      <div className="flex flex-col flex-1 justify-between items-center gap-10 md:px-[15%]">
+        <div className="flex flex-col gap-3 items-center justify-center mt-8">
+          <p className="text-3xl font-medium text-gray-700">Working with us</p>
+          <p className="text-lg font-light text-gray-700 text-center">
+            Discover what it's like to work with one of the fastest growing
+            groups of companies in the world
           </p>
-          <p className="md:text-base lg:text-lg xl:text-xl mt-4 font-medium">
-            {t(
-              "Explore recent and most trending job opportunities in Banaaf to boost your international career and archieve your goals"
-            )}
-          </p>
-          <p className="md:text-base lg:text-md xl:text-lg mt-4">
-            {t("Do you have a job vacancy or looking for a job?")}
-          </p>
-          <div className="flex flex-row gap-4 mt-3 md:flex md:flex-row">
-            <Link
-              to="/addOffer"
-              className="w-fit bg-white hover:bg-white/75 text-primary rounded-lg flex flex-row justify-center items-center border-white px-8 py-3"
-            >
-              <span>{t("Publish a job offer")}</span>
-              <MdOutlineArrowForward className="ml-2 w-4 h-4 text-primary" />
-            </Link>
-          </div>
+          <Link
+            to="/addOffer"
+            className="w-fit bg-primary hover:bg-primary/75 text-white rounded-lg flex flex-row justify-center items-center border-none px-8 py-3"
+          >
+            <span>{t("Publish a job offer")}</span>
+            <MdOutlineArrowForward className="ml-2 w-4 h-4 text-white" />
+          </Link>
         </div>
-        <div className="flex-1 mt-8 mx-8 w-full">
-          <img src={headerIllustration} alt="header illustration" />
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+          <div className="md:col-span-2 md:row-span-2 rounded-md overflow-hidden ">
+            <img
+              src={Image1}
+              alt=""
+              className="object-cover w-full h-full hover:scale-125 transition ease-in-out delay-100 duration-300 cursor-pointer"
+            />
+          </div>
+          <div className=" rounded-md overflow-hidden ">
+            <img
+              src={Image2}
+              alt=""
+              className="object-cover w-full h-full hover:scale-125 transition ease-in-out delay-100 duration-300 cursor-pointer"
+            />
+          </div>
+          <div className="md:row-span-2 rounded-md overflow-hidden ">
+            <img
+              src={Image3}
+              alt=""
+              className="object-cover w-full h-full hover:scale-125 transition ease-in-out delay-100 duration-300 cursor-pointer"
+            />
+          </div>
+          <div className=" rounded-md overflow-hidden ">
+            <img
+              src={Image4}
+              alt=""
+              className="object-cover w-full h-full hover:scale-125 transition ease-in-out delay-100 duration-300 cursor-pointer"
+            />
+          </div>
         </div>
       </div>
     </div>

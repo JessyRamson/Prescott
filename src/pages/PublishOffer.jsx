@@ -23,7 +23,7 @@ const PublishOffer = () => {
   } = usePublishOffer();
 
   return (
-    <div className="bg-gray-100 w-full h-full">
+    <div className="bg-gray-100/20 w-full h-full">
       {/* navbar */}
       <Navbar />
 
@@ -31,7 +31,7 @@ const PublishOffer = () => {
       <form>
         <div className="flex flex-col md:flex-row gap-4 px-[15%] py-5">
           {/* left side */}
-          <div className="bg-white rounded-sm py-5 px-3 space-y-4 w-full md:w-2/3">
+          <div className="bg-white rounded-sm py-5 px-3 space-y-4 w-full md:w-2/3 shadow-sm">
             {/* title */}
             <div>
               <Input
@@ -123,7 +123,7 @@ const PublishOffer = () => {
           </div>
 
           {/* right side */}
-          <div className="bg-white rounded-sm py-5 px-3 space-y-4 w-full md:w-1/3">
+          <div className="bg-white rounded-sm py-5 px-3 space-y-4 w-full md:w-1/3 shadow-sm">
             {/* title */}
             <div>
               <Input
