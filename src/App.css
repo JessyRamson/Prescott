@@ -46,7 +46,9 @@
   input[type="file"] {
     @apply text-sm rounded-lg py-2 px-4  bg-primary/20;
   }
-
+  a.active {
+    @apply text-primary;
+  }
   .page_cont {
     @apply w-screen min-h-screen bg-white flex flex-col lg:flex-row;
   }

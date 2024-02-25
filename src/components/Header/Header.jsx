@@ -19,7 +19,7 @@ const Header = () => {
       <Navbar />
 
       {/* banner */}
-      <div className="flex flex-col flex-1 justify-between items-center gap-10 md:px-[15%]">
+      <div className="flex flex-col flex-1 justify-between items-center gap-10 px-[5%] md:px-[15%]">
         <div className="flex flex-col gap-3 items-center justify-center mt-8">
           <p className="text-3xl font-medium text-gray-700">Working with us</p>
           <p className="text-lg font-light text-gray-700 text-center">
@@ -27,7 +27,11 @@ const Header = () => {
             groups of companies in the world
           </p>
           <Link
-            to="/addOffer"
+            to={
+              localStorage.getItem("isAuth") === null || false
+                ? "/login"
+                : "/addOffer"
+            }
             className="w-fit bg-primary hover:bg-primary/75 text-white rounded-lg flex flex-row justify-center items-center border-none px-8 py-3"
           >
             <span>{t("Publish a job offer")}</span>

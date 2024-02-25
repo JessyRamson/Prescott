@@ -1,12 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import Navbar from "../components/global/navbar/Navbar";
 import Input from "../components/form/Input";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import Footer from "../components/footer/Footer";
+import useSentMail from "../hooks/useSentMail";
+import { BeatLoader } from "react-spinners";
 
 const ApplyJob = () => {
-  const [value, setValue] = useState("");
+  const { formik, loading, value, setValue } = useSentMail();
 
   return (
     <div className="bg-gray-100 w-full h-full">
@@ -14,8 +16,8 @@ const ApplyJob = () => {
       <Navbar />
 
       {/* form */}
-      <form>
-        <div className="flex flex-col md:flex-row gap-4 px-[15%] py-5">
+      <form onSubmit={formik.handleSubmit} encType="multipart/form-data">
+        <div className="flex flex-col md:flex-row gap-4 px-[5%] md:px-[15%] py-5">
           {/* left side */}
           <div className="bg-white rounded-sm py-5 px-3 space-y-4 w-full md:w-2/3">
             {/* name */}
@@ -28,7 +30,15 @@ const ApplyJob = () => {
                   type={"theme"}
                   name={"firstname"}
                   placeholder={"Enter first name"}
+                  value={formik.values.firstname}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
                 />
+                {formik.touched.firstname && formik.errors.firstname && (
+                  <span className="text-sm text-red-500">
+                    {formik.errors.firstname}
+                  </span>
+                )}
               </div>
               {/* lname */}
               <div>
@@ -38,7 +48,15 @@ const ApplyJob = () => {
                   type={"theme"}
                   name={"lastname"}
                   placeholder={"Enter last name"}
+                  value={formik.values.lastname}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
                 />
+                {formik.touched.lastname && formik.errors.lastname && (
+                  <span className="text-sm text-red-500">
+                    {formik.errors.lastname}
+                  </span>
+                )}
               </div>
             </div>
 
@@ -50,8 +68,16 @@ const ApplyJob = () => {
                 type={"email"}
                 name={"email"}
                 placeholder={"Enter your email"}
+                value={formik.values.email}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
               />
             </div>
+            {formik.touched.email && formik.errors.email && (
+              <span className="text-sm text-red-500">
+                {formik.errors.email}
+              </span>
+            )}
 
             {/* Message */}
             <div className={`flex flex-col gap-2 w-full h-60 overflow-hidden`}>
@@ -69,26 +95,31 @@ const ApplyJob = () => {
             </div>
 
             {/* cv */}
-            <div>
+            {/* <div>
               <Input
                 label={"Drop your CV"}
                 type={"file"}
                 className={"file-button"}
-                name={"logo"}
-                // onChange={(e) =>
-                //   formik.setFieldValue("logo", e.target.files[0])
-                // }
-                // onBlur={formik.handleBlur}
+                name={"cv"}
+                onChange={(e) => formik.setFieldValue("cv", e.target.files[0])}
+                onBlur={formik.handleBlur}
               />
-              {/* {formik.touched.logo && formik.errors.logo ? (
-                <ErrorForm message={formik.errors.logo} />
-              ) : null} */}
-            </div>
+              {formik.touched.cv && formik.errors.cv ? (
+                <span className="text-sm text-red-500">{formik.errors.cv}</span>
+              ) : null}
+            </div> */}
 
-            <div className="flex justify-end">
+            <div className="flex items-center justify-end ">
               {/* button */}
-              <button className="w-fit flex justify-center items-center border border-none outline-none bg-primary py-2 px-4 rounded-sm shadow-sm hover:shadow-md hover:bg-primary/75 cursor-pointer text-white">
-                Send
+              <button
+                type="submit"
+                className="w-fit flex justify-center items-center border border-none outline-none bg-primary py-2 px-4  rounded-sm shadow-sm hover:shadow-md hover:bg-primary/75 cursor-pointer text-white"
+              >
+                {loading ? (
+                  <BeatLoader size={12} className="" color="white" />
+                ) : (
+                  "Send"
+                )}
               </button>
             </div>
           </div>

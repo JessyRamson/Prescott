@@ -8,7 +8,7 @@ const Register = () => {
   const { formik, loading } = useRegister();
 
   return (
-    <div className="w-full h-screen flex justify-center items-center bg-gray-100">
+    <div className="w-full h-screen flex justify-center items-center bg-gray-100 px-[5%]">
       <div className="rounded-md shadow-sm py-4 px-6 flex flex-col gap-3 bg-white w-full sm:w-[400px]">
         <div className="text-primary text-lg font-semibold text-center">
           SignUp

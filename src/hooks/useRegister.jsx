@@ -1,9 +1,12 @@
+import axios from "axios";
 import { useFormik } from "formik";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import * as yup from "yup";
 
 const useRegister = () => {
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
   const initialValues = {
     email: "",
     password: "",
@@ -20,7 +23,14 @@ const useRegister = () => {
 
   const onSubmit = (e) => {
     console.log("Onsubmit values", e);
-    setLoading(false);
+    setLoading(true);
+    axios
+      .post("http://localhost:5000/api/company/", e)
+      .then((res) => {
+        navigate("/login");
+      })
+      .catch((err) => console.log("Error", err))
+      .finally(() => setLoading(false));
   };
   const formik = useFormik({
     initialValues,
